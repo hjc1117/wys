@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>给小王老师的一份小礼物</title>
+    <style>
+      .div {
+        font-size: 0.12rem;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        left: 0;
+      }
+      img {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        z-index: 0;
+      }
+      .text {
+        z-index: 1;
+      }
+      .text p {
+        background-image: linear-gradient(
+          to left,
+          skyBlue,
+          rgb(224, 106, 106),
+          rgb(198, 71, 248)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./微信图片_20211127230956.jpg" alt="" />
+    <div class="div">
+      <div class="text">
+        <p>2021年10月8日，我们第一次在餐桌相遇</p>
+        <p>下了班火急火燎的赶回来~</p>
+        <p>好紧张呀</p>
+        <p>坐下后，我偷偷的瞄你一眼</p>
+        <p>天哪!!</p>
+        <p>好美!!</p>
+        <p>说话也好温柔!</p>
+        <p>性格也好好!!</p>
+        <p>就是她了!!</p>
+        <p>反正以前也没有追过女孩儿</p>
+        <p>这次拿出全看家的直男本领追一追</p>
+        <p>嘻嘻</p>
+        <p></p>
+        <button id="yes">同意</button>
+        <button id="no">不同意</button>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  function setRem() {
+    var ui_w = 375;
+    // 获取屏幕的宽度
+    var clientWidth =
+      document.documentElement.clientWidth || document.body.clientWidth;
+    // 通过js动态改变html根节点字体大小
+    var html_ = document.getElementsByTagName("html")[0];
+    var div = document.getElementsByClassName("div")[0];
+    div.style.width = clientWidth + "px";
+    html_.style.fontSize = (clientWidth / ui_w) * 100 + "px";
+  }
+  // window.onresize 浏览器被重置大小执行事件
+  window.onresize = setRem;
+  window.create = setRem();
+  var yes = document.getElementById("yes");
+  var no = document.getElementById("no");
+  no.ontouchstart = function (e) {
+    console.log(e);
+  };
+</script>
