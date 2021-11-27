@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>给小王老师的一份小礼物</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
       .div {
         font-size: 0.12rem;
         text-align: center;
@@ -21,6 +25,8 @@
       }
       .text {
         z-index: 1;
+        height: 2rem;
+        overflow: hidden;
       }
       .text p {
         background-image: linear-gradient(
@@ -32,6 +38,16 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 600;
+      }
+      @keyframes go {
+        0% {
+          opacity: 1;
+          height: 2rem;
+        }
+        100% {
+          opacity: 0;
+          height: 0rem;
+        }
       }
     </style>
   </head>
@@ -49,12 +65,11 @@
         <p>性格也好好!!</p>
         <p>就是她了!!</p>
         <p>反正以前也没有追过女孩儿</p>
-        <p>这次拿出全看家的直男本领追一追</p>
+        <p>这次拿出看家的直男本领追一追</p>
         <p>嘻嘻</p>
-        <p></p>
-        <button id="yes">同意</button>
-        <button id="no">不同意</button>
       </div>
+      <button id="yes">小王觉得可以同意这门亲事!</button>
+      <button id="no">小王觉得不能同意这门亲事</button>
     </div>
   </body>
 </html>
@@ -76,7 +91,11 @@
   window.create = setRem();
   var yes = document.getElementById("yes");
   var no = document.getElementById("no");
+  var div = document.getElementsByClassName("text")[0];
+  yes.ontouchstart = function (e) {
+    div.style.animation = "go 1s forwards";
+  };
   no.ontouchstart = function (e) {
-    console.log(e);
+    div.style.animation = "go 1s forwards";
   };
 </script>
