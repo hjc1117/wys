@@ -100,10 +100,14 @@
   var yes = document.getElementById("yes");
   var no = document.getElementById("no");
   var div = document.getElementsByClassName("text")[0];
-  yes.ontouchstart = function (e) {
-    div.style.animation = "go 1s forwards";
+  yes.ontouchend = function (e) {
+    setTimeout(() => {
+      div.style.animation = "go 1s forwards";
+    }, 100);
   };
-  no.ontouchstart = function (e) {
-    div.style.animation = "go 1s forwards";
+  no.ontouchend = function (e) {
+    setTimeout(() => {
+      div.style.animation = "go 1s forwards";
+    }, 100);
   };
 </script>
