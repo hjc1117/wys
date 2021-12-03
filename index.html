@@ -14,6 +14,7 @@
         font-size: 0.12rem;
         text-align: center;
         width: 100%;
+        height: 100%;
         position: absolute;
         left: 0;
       }
@@ -25,11 +26,17 @@
       }
       .text {
         z-index: 1;
-        height: 2rem;
+        height: 100%;
         overflow: hidden;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.1rem;
       }
-      .text p {
+      .a {
+        width: 100%;
+        height: 50%;
+      }
+      .text p,
+      .profess p,
+      .profess1 p {
         background-image: linear-gradient(
           to left,
           skyBlue,
@@ -39,6 +46,19 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: 600;
+      }
+      .text p:last-of-type {
+        margin-bottom: 0.1rem;
+      }
+      .profess {
+        position: relative;
+        height: 0;
+        overflow: hidden;
+      }
+      .profess1 {
+        position: relative;
+        height: 0;
+        overflow: hidden;
       }
       @keyframes go {
         0% {
@@ -50,27 +70,106 @@
           height: 0rem;
         }
       }
+      @keyframes back {
+        0% {
+          /* opacity: 0; */
+          height: 0;
+        }
+        100% {
+          opacity: 1;
+          height: 100%;
+        }
+      }
+      @keyframes dis {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .btn {
+        position: relative;
+        width: 100%;
+        height: 50%;
+        /* transform: translate(-50%, -50%); */
+      }
+      .next {
+        position: absolute;
+        top: 0.1rem;
+        right: 0.1rem;
+        z-index: 2;
+        opacity: 0;
+      }
+      button {
+        border: none;
+        padding: 5px;
+        background-color: #00eeff;
+        color: rgb(255, 255, 255);
+      }
+      button span {
+        color: red;
+      }
     </style>
   </head>
   <body>
-    <img src="./微信图片_20211127230956.jpg" alt="" />
+    <img class="o" src="./微信图片_20211127230956.jpg" alt="" />
+    <img
+      class="q"
+      style="display: none"
+      src="./Snipaste_2021-12-04_00-20-33.png"
+      alt=""
+    />
     <div class="div">
-      <div class="text">
-        <p>2021年10月8日，我们第一次在餐桌相遇</p>
-        <p>下了班火急火燎的赶回来~</p>
-        <p>好紧张呀</p>
-        <p>坐下后，我偷偷的瞄你一眼</p>
-        <p>天哪!!</p>
-        <p>好美!!</p>
-        <p>说话也好温柔!</p>
-        <p>性格也好好!!</p>
-        <p>就是她了!!</p>
-        <p>反正以前也没有追过女孩儿</p>
-        <p>这次拿出看家的直男本领追一追</p>
-        <p>嘻嘻</p>
+      <div class="a">
+        <div class="text">
+          <p>2021年10月8日，我们第一次在餐桌相遇</p>
+          <p>下了班火急火燎的赶回来~</p>
+          <p>好紧张呀</p>
+          <p>坐下后，我偷偷的瞄你一眼</p>
+          <p>天哪!!</p>
+          <p>好美!!</p>
+          <p>说话也好温柔!</p>
+          <p>性格也好好!!</p>
+          <p>就是她了!!</p>
+          <p>这是我第一次追女孩儿</p>
+          <p>嘻嘻</p>
+          <p>每次见面都很想抱抱你呀</p>
+          <p>我愿意相信，你就是那个一直等着我的人</p>
+          <p>是那个我们一定会相见的那个人</p>
+        </div>
+        <div class="profess">
+          <p>不是失去了爱人的能力</p>
+          <p>也不是没有人能让他心动</p>
+          <p>只是觉得可以慢慢的和一个人聊天</p>
+          <p>去相互了解</p>
+          <p>是一件很美好很幸福的事情</p>
+          <p>抱着一个女里就会有回报的信念去追一个女生</p>
+          <p>但是等待我的是一个</p>
+          <p>即使努力</p>
+          <p>也不一定会有公平回报的人生</p>
+          <p>慢慢来的感情是负责人的浪漫诚意</p>
+          <p>希望在这个快餐爱情肆意的时代</p>
+          <p>我可以带着爱意跟你慢慢来</p>
+          <button class="next">下一页</button>
+        </div>
+        <div class="profess1">
+          <p>你出现的再早一些就好了</p>
+          <p>不过也没关系</p>
+          <p>你晚点出现也没关系</p>
+          <p>我还是遇到了</p>
+          <p>希望往后的日子里，都是你</p>
+          <p>最后</p>
+          <p>愿你所到之处</p>
+          <p>遍地阳光</p>
+        </div>
       </div>
-      <button id="yes">小王觉得可以同意这门亲事!</button>
-      <button id="no">小王觉得不能同意这门亲事</button>
+      <div class="btn">
+        <button id="yes">
+          <span>♥</span>小王觉得可以同意这门亲事!<span>♥</span>
+        </button>
+        <button id="no">o(╥﹏╥)o小王觉得不能同意这门亲事o(╥﹏╥)o</button>
+      </div>
     </div>
   </body>
 </html>
@@ -99,15 +198,44 @@
    * */
   var yes = document.getElementById("yes");
   var no = document.getElementById("no");
+  var q = document.getElementsByClassName("q")[0];
+  var o = document.getElementsByClassName("o")[0];
+  var div_ = document.getElementsByClassName("div")[0];
   var div = document.getElementsByClassName("text")[0];
+  var profess = document.getElementsByClassName("profess")[0];
+  var profess1 = document.getElementsByClassName("profess1")[0];
+  var next = document.getElementsByClassName("next")[0];
+  var btn = document.getElementsByClassName("btn")[0];
   yes.ontouchend = function (e) {
     setTimeout(() => {
       div.style.animation = "go 1s forwards";
+      btn.style.display = "none";
     }, 100);
-  };
-  no.ontouchend = function (e) {
     setTimeout(() => {
-      div.style.animation = "go 1s forwards";
-    }, 100);
+      profess.style.animation = "back 20s forwards";
+      setTimeout(() => {
+        next.style.animation = "dis 2s forwards";
+      }, 7000);
+    }, 1000);
+  };
+  var times = 0;
+  no.ontouchend = function (e) {
+    times++;
+    if (times <= 10) {
+      no.style.position = "absolute";
+      let num = parseInt((Math.random() * 100 + Math.random() * 100) / 2);
+      no.style.left = num + "%";
+      no.style.top = num + "%";
+    } else {
+      o.style.display = "none";
+      div_.style.display = "none";
+      q.style.display = "block";
+    }
+  };
+  next.ontouchend = function (e) {
+    setTimeout(() => {
+      profess.style.animation = "go 1s forwards";
+      profess1.style.animation = "back 20s forwards";
+    }, 1000);
   };
 </script>
